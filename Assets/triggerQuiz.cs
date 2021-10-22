@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class triggerQuiz : MonoBehaviour
 {
-    private CanvasGroup Canvas;
     // Start is called before the first frame update
     void Start()
     {
@@ -17,11 +16,12 @@ public class triggerQuiz : MonoBehaviour
         
     }
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider other)
     {
-        if(collision.gameObject.name == "Safe")
+        if(other.gameObject.name == "SpaceShip")
         {
-            
+            Debug.Log("funciona");
+            //agora é adicionar o canva
         }
     }
 }
