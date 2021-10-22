@@ -1,9 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class triggerQuiz : MonoBehaviour
 {
+    public string quizScene;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -21,7 +25,8 @@ public class triggerQuiz : MonoBehaviour
         if(other.gameObject.name == "SpaceShip")
         {
             Debug.Log("funciona");
-            //agora é adicionar o canva
+            //agora ï¿½ adicionar o canva
+            SceneManager.LoadScene(quizScene);
         }
     }
 }

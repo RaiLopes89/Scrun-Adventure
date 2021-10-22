@@ -297,6 +297,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d57a7d64c99b4264d8c757f7b5b69af1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  quizScene: Question
 --- !u!54 &321196663
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -443,6 +444,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d57a7d64c99b4264d8c757f7b5b69af1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  quizScene: 
 --- !u!54 &375478220
 Rigidbody:
   m_ObjectHideFlags: 0
