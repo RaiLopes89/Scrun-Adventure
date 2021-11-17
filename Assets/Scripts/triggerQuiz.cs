@@ -7,11 +7,12 @@ using UnityEngine.UI;
 public class triggerQuiz : MonoBehaviour
 {
     public string quizScene;
+    public GameObject QuestionPanel;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
@@ -26,7 +27,9 @@ public class triggerQuiz : MonoBehaviour
         {
             Debug.Log("funciona");
             //agora � adicionar o canva
-            SceneManager.LoadScene(quizScene);
+            //SceneManager.LoadScene(quizScene);
+            QuestionPanel.SetActive(true);
+            
         }
     }
 }
