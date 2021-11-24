@@ -1,0 +1,5 @@
+id,planeta,pergunta,resposta,resposta,resposta,resposta,resposta_correta_index
+0,Netuno,qual o tamanho de netuno?,minusculo,grande,miscroscopico,isso é um planeta?,1
+1,Netuno,qual a cor de netuno?,Branco,Verde,Azul,Preto,2
+2,Netuno,Netuno possui quantos anéis?,Nenhum,1,2,3,0
+3,Netuno,Netuno é composto por,patos,rochas e gas,agua e gas,agua,3

@@ -6,9 +6,10 @@ using UnityEngine.UI;
 
 public class QuizManager : MonoBehaviour
 {
-    public List<QuestionsAndAnswers> QnA;
+    private List<QuestionsAndAnswers> QnA;
     public GameObject[] options;
     public int currentQuestion;
+    public GameObject player;
 
     public Text QuestionText;
     public Text ScoreTxt;
@@ -19,14 +20,35 @@ public class QuizManager : MonoBehaviour
     int totalQuestions = 0;
     public int score;
 
+    private void Update(){
+        if(QuizPanel.activeSelf){
+            player = GameObject.Find("Player");
+            player.transform.GetChild(0).gameObject.GetComponent<SpaceShipController>().isBlocked = true;
+        }
+    }
+
     private void Start()
     {
+        QnA = CarregarPerguntas.GetQuestionsAndAnswers();
         totalQuestions = QnA.Count;
         generateQuestion();
     }
 
     void GameOver()
     {
+        player = GameObject.Find("Player");
+
+        GameObject spaceship = player.transform.GetChild(0).gameObject;
+        SpaceShipController spaceshipController = spaceship.GetComponent<SpaceShipController>();
+
+        spaceshipController.isBlocked = false;
+
+        #region WORK AROUND MUDAR DPS TMJ
+            spaceshipController.currentPlanet = "";
+            spaceship.transform.position = new Vector3(spaceship.transform.position.x, spaceship.transform.position.y, 1884);
+            GameObject.Find("GRPTrigger").transform.GetChild(0).GetChild(0).gameObject.SetActive(false);
+        #endregion
+
         QuizPanel.SetActive(false);
         ScoreTxt.text = "Acertos: " +  score + " / " + totalQuestions;
         Debug.Log("Total: " + score);
@@ -53,11 +75,9 @@ public class QuizManager : MonoBehaviour
             options[i].GetComponent<AnswerScript>().isCorrect = false;
             options[i].transform.GetChild(0).GetComponent<Text>().text = QnA[currentQuestion].Answers[i];
 
-            if(QnA[currentQuestion].CorrectAnswer == i+1)
+            if(QnA[currentQuestion].CorrectAnswer == i)
             {
                 options[i].GetComponent<AnswerScript>().isCorrect = true;
-
-
             }
         }
     }

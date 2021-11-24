@@ -2,41 +2,46 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class carregarPerguntas : MonoBehaviour
+
+public static class CarregarPerguntas
 
 {
-    List<Perguntas> perguntas = new List<Perguntas>();
-
-    // Start is called before the first frame update
-    void Start()
+    public static List<QuestionsAndAnswers> GetQuestionsAndAnswers()
     {
-        TextAsset pergunta = Resources.Load<TextAsset>("perguntas");
+        List<QuestionsAndAnswers> normalizedQuestions = new List<QuestionsAndAnswers>();
 
-        string[] data = pergunta.text.Split(new char[] { '\n' });
+        TextAsset rawTextContent = Resources.Load<TextAsset>("Perguntas_csv/perguntas");
+        string[] data = rawTextContent.text.Split(new char[] { '\n' });
 
-        for (int i = 1; i < data.Length - 1; i++)
+        for (int i = 1; i <= data.Length - 1; i++)
         {
             string[] row = data[i].Split(new char[] { ',' });
             if (row[1] != "")
             {
-                Perguntas p = new Perguntas();
+                QuestionsAndAnswers qnA = new QuestionsAndAnswers();
 
-                int.TryParse(row[0], out p.id);
-                p.planeta = row[1];
-                p.pergunta = row[2];
-                p.resposta_correta = row[3];
-                p.resposta_incorreta1 = row[4];
-                p.resposta_incorreta2 = row[5];
-                p.resposta_incorreta3 = row[6];
+                int currentQuestionId;
+                int.TryParse(row[0], out currentQuestionId);
 
-                perguntas.Add(p);
+                qnA.id = currentQuestionId;
+                qnA.Planet = row[1];
+                qnA.Question = row[2];
+                
+                int correctAnswer = -1;
+                int.TryParse(row[7], out correctAnswer);
+                qnA.CorrectAnswer = correctAnswer;
+                
+                string[] answers = new string[4];
+                for(var x = 3; x<=6;x++){
+                    answers[x-3] = row[x];
+                }
+
+                qnA.Answers = answers;
+
+                normalizedQuestions.Add(qnA);
             }
         }
-    }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+        return normalizedQuestions;
     }
 }

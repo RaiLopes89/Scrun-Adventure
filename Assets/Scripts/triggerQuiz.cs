@@ -6,8 +6,10 @@ using UnityEngine.UI;
 
 public class triggerQuiz : MonoBehaviour
 {
-    public string quizScene;
     public GameObject QuestionPanel;
+    private GameObject player;
+
+    public string triggerPlanetText;
 
     // Start is called before the first frame update
     void Start()
@@ -23,9 +25,12 @@ public class triggerQuiz : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.gameObject.name == "SpaceShip")
+        player = GameObject.Find("Player");
+        SpaceShipController spaceship = player.transform.GetChild(0).gameObject.GetComponent<SpaceShipController>();
+
+        if(other.gameObject.name == "SpaceShip" & spaceship.currentPlanet == triggerPlanetText)
         {
-            Debug.Log("funciona");
+            Debug.Log("QUIZ - funciona");
             //agora � adicionar o canva
             //SceneManager.LoadScene(quizScene);
             QuestionPanel.SetActive(true);
