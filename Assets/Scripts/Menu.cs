@@ -8,6 +8,7 @@ public class Menu : MonoBehaviour
 {
     public string cena;
     public GameObject optionsPanel;
+    public GameObject menuPanel;
 
     // Start is called before the first frame update
     void Start()
@@ -36,10 +37,12 @@ public class Menu : MonoBehaviour
     public void ShowOptions()
     {
         optionsPanel.SetActive(true);
+        menuPanel.SetActive(false);
     }
 
     public void BackToMenu()
     {
+        menuPanel.SetActive(true);
         optionsPanel.SetActive(false);
     }
 }
