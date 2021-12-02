@@ -14,12 +14,14 @@ public class QuizManager : MonoBehaviour
 
     public Text QuestionText;
     public Text ScoreTxt;
+    public Text TotalScoreTxt;
 
     public GameObject QuizPanel;
     //public GameObject GameOverPanel;
 
     int totalQuestions = 0;
-    public int score;
+    int score;
+    int totalScore;
 
     private void Update(){
         if(QuizPanel.activeSelf){
@@ -55,12 +57,14 @@ public class QuizManager : MonoBehaviour
         GameObject.Find("Panel_question").gameObject.SetActive(false);
         //QuizPanel.SetActive(false);
         ScoreTxt.text = "Acertos: " +  score + " / " + totalQuestions;
+        TotalScoreTxt.text = "Total pontos: " + totalScore;
         Debug.Log("Total: " + score);
     }
 
     public void correct()
     {
         score += 1;
+        totalScore += 1;
         QnA.RemoveAt(currentQuestion);
         generateQuestion();
         
@@ -99,6 +103,7 @@ public class QuizManager : MonoBehaviour
         {
             Debug.Log("Out of Questions");
             GameOver();
+            QnA.Clear();
         }
 
     }
