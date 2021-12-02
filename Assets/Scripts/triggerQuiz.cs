@@ -27,7 +27,7 @@ public class triggerQuiz : MonoBehaviour
     {
         player = GameObject.Find("Player");
         SpaceShipController spaceship = player.transform.GetChild(0).gameObject.GetComponent<SpaceShipController>();
-
+        Debug.Log("Teste" + spaceship.currentPlanet);
         if(other.gameObject.name == "SpaceShip" & spaceship.currentPlanet == triggerPlanetText)
         {
             Debug.Log("QUIZ - funciona");

@@ -50,10 +50,10 @@ public class QuizManager : MonoBehaviour
         #region WORK AROUND MUDAR DPS TMJ
             spaceshipController.currentPlanet = "";
             spaceship.transform.position = new Vector3(spaceship.transform.position.x, spaceship.transform.position.y, 1884);
-            GameObject.Find("Canva_Urano").transform.GetChild(0).GetChild(0).gameObject.SetActive(false);
+            GameObject.Find("Canva_Urano").transform.GetChild(0).gameObject.SetActive(false);
         #endregion
-
-        QuizPanel.SetActive(false);
+        GameObject.Find("Panel_question").gameObject.SetActive(false);
+        //QuizPanel.SetActive(false);
         ScoreTxt.text = "Acertos: " +  score + " / " + totalQuestions;
         Debug.Log("Total: " + score);
     }

@@ -1,6 +1,9 @@
 id,planeta,pergunta,resposta,resposta,resposta,resposta,resposta_correta_index
-0,Netuno,qual o tamanho de netuno?,minusculo,grande,miscroscopico,isso é um planeta?,1
-1,Netuno,qual a cor de netuno?,Branco,Verde,Azul,Preto,2
+0,Netuno,Qual a maior velocidade do vento ja registrado em Netuno?,4.000 km / h,2.000 km / h,Não há vento em Netuno,40.000 km / h ,1
+1,Netuno,Qual a cor de netuno?,Branco por conta da nuvens,Verde por conta das plantas,Azul por conta do metano,Preto por conta da chuva,2
 2,Netuno,Netuno possui quantos anéis?,Nenhum,1,2,3,0
-3,Netuno,Netuno é composto por,patos,rochas e gas,agua e gas,agua,3
-4,Urano,Teste teste?,certo,errado,errado,errado,0
+3,Netuno,Netuno é composto por,Magnesio,Hidrogênio e Ferro,Neonio e Radonio,Hidrogênio e Hélio,3
+4,Urano,Qual a massa de netuno em comparação com a terra?,14 vezes,140 vezes,1.4 vezes,41 vezes,0
+5,Urano,Qual a cor de Urano?,Verde-Azulado graças a sua atmosfera, Azul graças a agua,Verde por conta das plantas,amarelo por conta do Sol,0
+6,Urano,Como é o Solo de Urano?,Gasosa e seguida por líquidos dispostos em camadas, Solido igual a terra, o planeta é feito basicamente de nuvens,Rochoso com muitas especies,0
+7,Urano,Urano possui aneis? Quantos sistemas?,Sim 12 sistemas mas nao são visiveis , 21 e sao facilmente visiveis,12 e sao facilmente visiveis,21 mas nao sao facilmente visiveis,0
