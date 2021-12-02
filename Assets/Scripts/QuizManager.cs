@@ -48,7 +48,7 @@ public class QuizManager : MonoBehaviour
         spaceshipController.isBlocked = false;
 
         #region WORK AROUND MUDAR DPS TMJ
-            spaceshipController.currentPlanet = "";
+            spaceshipController.currentPlanet = "Urano";
             spaceship.transform.position = new Vector3(spaceship.transform.position.x, spaceship.transform.position.y, 1884);
             GameObject.Find("Canva_Urano").transform.GetChild(0).gameObject.SetActive(false);
         #endregion
