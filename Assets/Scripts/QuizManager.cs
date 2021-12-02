@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -29,9 +30,12 @@ public class QuizManager : MonoBehaviour
 
     private void Start()
     {
-        QnA = CarregarPerguntas.GetQuestionsAndAnswers();
+        player = GameObject.Find("Player");
+        string currentPlanet = player.transform.GetChild(0).gameObject.GetComponent<SpaceShipController>().currentPlanet;
+        QnA = CarregarPerguntas.GetQuestionsAndAnswers().Where(question => question.Planet == currentPlanet).ToList();
         totalQuestions = QnA.Count;
         generateQuestion();
+
     }
 
     void GameOver()
@@ -46,7 +50,7 @@ public class QuizManager : MonoBehaviour
         #region WORK AROUND MUDAR DPS TMJ
             spaceshipController.currentPlanet = "";
             spaceship.transform.position = new Vector3(spaceship.transform.position.x, spaceship.transform.position.y, 1884);
-            GameObject.Find("GRPTrigger").transform.GetChild(0).GetChild(0).gameObject.SetActive(false);
+            GameObject.Find("Canva_Urano").transform.GetChild(0).GetChild(0).gameObject.SetActive(false);
         #endregion
 
         QuizPanel.SetActive(false);
