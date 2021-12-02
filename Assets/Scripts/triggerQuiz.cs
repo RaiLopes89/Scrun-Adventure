@@ -27,14 +27,14 @@ public class triggerQuiz : MonoBehaviour
     {
         player = GameObject.Find("Player");
         SpaceShipController spaceship = player.transform.GetChild(0).gameObject.GetComponent<SpaceShipController>();
-        Debug.Log("Teste" + spaceship.currentPlanet);
-        if(other.gameObject.name == "SpaceShip" & spaceship.currentPlanet == triggerPlanetText)
+        Debug.Log("Teste1: " + spaceship.currentPlanet);
+        Debug.Log("Teste2: " + triggerPlanetText);
+        if(other.gameObject.name == "SpaceShip" &  spaceship.currentPlanet == triggerPlanetText)
         {
             Debug.Log("QUIZ - funciona");
             //agora � adicionar o canva
             //SceneManager.LoadScene(quizScene);
             QuestionPanel.SetActive(true);
-            
         }
     }
 }

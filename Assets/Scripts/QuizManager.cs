@@ -37,7 +37,6 @@ public class QuizManager : MonoBehaviour
         QnA = CarregarPerguntas.GetQuestionsAndAnswers().Where(question => question.Planet == currentPlanet).ToList();
         totalQuestions = QnA.Count;
         generateQuestion();
-
     }
 
     void GameOver()
@@ -51,14 +50,18 @@ public class QuizManager : MonoBehaviour
 
         #region WORK AROUND MUDAR DPS TMJ
             spaceshipController.currentPlanet = "Urano";
-            spaceship.transform.position = new Vector3(spaceship.transform.position.x, spaceship.transform.position.y, 1884);
+            spaceship.transform.position = new Vector3(spaceship.transform.position.x, spaceship.transform.position.y, spaceship.transform.position.z+2000);
             GameObject.Find("Canva_Urano").transform.GetChild(0).gameObject.SetActive(false);
         #endregion
+
+
         GameObject.Find("Panel_question").gameObject.SetActive(false);
         //QuizPanel.SetActive(false);
         ScoreTxt.text = "Acertos: " +  score + " / " + totalQuestions;
         TotalScoreTxt.text = "Total pontos: " + totalScore;
         Debug.Log("Total: " + score);
+        score = 0;
+        Start();
     }
 
     public void correct()
@@ -92,6 +95,7 @@ public class QuizManager : MonoBehaviour
 
     void generateQuestion()
     {
+
         if(QnA.Count > 0)
         {
             currentQuestion = Random.Range(0, QnA.Count);
@@ -103,7 +107,6 @@ public class QuizManager : MonoBehaviour
         {
             Debug.Log("Out of Questions");
             GameOver();
-            QnA.Clear();
         }
 
     }
